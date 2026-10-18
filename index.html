@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEasy – Order Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🛒 ShopEasy</h1>
+    <input id="search" type="search" placeholder="Search products..." />
+    <button id="cartBtn" class="btn">Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <div class="layout">
+    <!-- TREE: category hierarchy -->
+    <aside class="panel sidebar">
+      <h2>Categories</h2>
+      <div id="categoryTree"></div>
+
+      <!-- STACK: recently viewed -->
+      <h2 class="mt">Recently Viewed</h2>
+      <div id="recentList" class="recent"></div>
+    </aside>
+
+    <main>
+      <h2 id="productTitle">All Products</h2>
+      <div id="productGrid" class="grid"></div>
+    </main>
+
+    <aside class="panel right">
+      <!-- ARRAY: cart items -->
+      <h2>Your Cart</h2>
+      <div id="cartList"></div>
+      <div class="cart-total">Total: <strong id="cartTotal">₹0</strong></div>
+      <button id="placeOrderBtn" class="btn primary full">Place Order</button>
+
+      <!-- QUEUE + LINKED LIST: orders -->
+      <h2 class="mt">Orders</h2>
+      <div class="queue-bar">
+        <span>In queue: <strong id="queueSize">0</strong></span>
+        <button id="processBtn" class="btn small">Process next order</button>
+      </div>
+      <div id="orderList"></div>
+    </aside>
+  </div>
+
+  <dialog id="productDialog">
+    <div id="dialogBody"></div>
+    <div class="dialog-actions">
+      <button id="dialogAdd" class="btn primary">Add to cart</button>
+      <button id="dialogClose" class="btn">Close</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
